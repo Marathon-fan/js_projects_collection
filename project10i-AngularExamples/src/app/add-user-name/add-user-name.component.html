@@ -1,0 +1,14 @@
+<p>  add-user-name works!</p>
+<label>user name:</label>
+  <input
+    type = "text"
+    class = "form-control"
+    [(ngModel)] = userName
+  >
+<p>{{userName}}</p>
+
+
+<button class = "btn btn-primary"
+        [disabled] = "userName === ''"
+        (click) = " userName = ''"
+>set user name null</button>

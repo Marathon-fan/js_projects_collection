@@ -1,0 +1,30 @@
+
+this WEEK --- install the platform!!!
+1 learn zookeepr
+2 install the platform 
+3 every day a subject SMACK to review
+4 complete john's lesson
+
+
+2 learn new thing about data  
+new study plan
+
+
+3 
+1) ask for cashman suncrop			
+2) submit for more positons			
+3) send my project and resume to yuanyuan     
+
+
+
+https://zookeeper.apache.org/doc/r3.3.2/zookeeperAdmin.html#sc_zkMulitServerSetup
+
+
+//--
+    stream.filter(track=['abc'], languages=['en'])
+Small typo in my code in  the previous post. That should be: 
+
+ tweets.filter(_.getLang()=="en")
+
+Spark uses Twitter4J for the feed. Twitter4J as of version 3.0.6 has getLang (doc) which allows you to:
+.filter(_.getLang == "en")

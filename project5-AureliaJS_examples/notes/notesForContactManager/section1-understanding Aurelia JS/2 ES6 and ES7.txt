@@ -1,0 +1,66 @@
+
+
+list
+
+1 Classes
+2 Scoping
+3 Templates
+4 String interpolation
+5 embeded expressions
+6 Decorators
+7 Async/await
+
+/////----------------------------
+// class representation
+class Welcome{
+	constructor() {
+	    // methods are needed for initializeing a class
+
+	}
+}
+
+// scoping
+// The let statement declares a block scope local variable, optionally initializing it to a value.
+
+
+class Welcome{
+	constructor() {
+	this.result = 0;
+	}
+	add(first, second) {
+		let result = -1;
+		if (first && second) {
+		   let result = first + second;
+		}
+		return result; // the value is -1
+	}
+}
+
+// Template Strings
+let message = "Hello World";
+let fname = "abc";
+let lname = "pqr";
+let message = "Hello ${fname}, how are you?";  //String interpolation
+
+let three = 3;
+let four = 4;
+let message = "The product of 3*4 is ${three*four}" //embeded expressions
+
+
+let user = "abc",
+
+let message = " Thank you ${user} for contacting the suppor team We value your business and are more than happy for your service "
+
+
+// Decorators
+import {inject} from 'aurelia-framework';
+
+// async/wait
+activate() {
+	
+}
+
+
+// babelrc
+// 
+Babel is a transpiler for JavaScript best known for its ability to turn ES6 (the next version of JavaScript) into code that runs in your browser (or on your server) today.

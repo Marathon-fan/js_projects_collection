@@ -1,0 +1,19 @@
+<template>
+  <require from = "bootstrap/css/bootstrap.css"></require>>
+  <require from = "./styles.css"></require>>
+  <require from = "./contact-list"></require>>
+  <nav class = "navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class = "navbar-header">
+      <a class ="navbar-brand" href= "#">
+        Contacts
+      </a>
+    </div>
+  </nav>
+
+  <div class = "container">
+    <loading-indicator loading.bind="router.isNavigating || app.isRequesting"></loading-indicator>
+    <contact-list class = "col-md-4"></contact-list>
+    <router-view class = "cod-md-8"></router-view>
+  </div>
+  
+</template>

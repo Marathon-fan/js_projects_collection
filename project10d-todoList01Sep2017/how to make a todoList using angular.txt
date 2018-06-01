@@ -1,0 +1,71 @@
+
+startTime: 
+10:00am
+
+Endtime:
+11:21am
+
+
+
+todoList step1:--------------------------
+npm install --save bootstrap
+modily: .angular-cli.json  file
+"styles":[
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+]
+
+todoList step2:--------------------------
+
+1 class    		items/shared/item
+2 service  		items/shared/item
+3 component 		items/item-detail
+4 component		items/items-list
+5 component		items/item-form
+
+
+todoList step3:--------------------------item
+
+
+
+
+todoList step4:--------------------------service item
+1 code
+
+2 in app.module.ts
+import { ItemService } from './items/shared/item.service';
+  providers: [ItemService],
+
+todoList step5:--------------------------item-form
+
+1code
+
+2 in app.module.ts
+import { FormsModule } from '@angular/forms';
+  imports: [
+    FormsModule
+  ]
+
+todoList step6:--------------------------item-detail 
+
+  @Input
+  item: Item = null;
+
+todoList step6:--------------------------items-list
+<div *ngFor = "let item of items">
+  <app-item-detail [item] = "item"></app-item-detail>
+</div>
+
+
+todoList step7:--------------------------delete item  !!!!!!!!!!!!!!!!!!!!!!!!!!
+remember: the EventEmitter's name in item-detail(child) is the same as the event's name in items-list(parent)
+for example:
+in item-detail's ts:
+  @Output()
+  itemDeleteEvent = new EventEmitter();
+in items-list's html:
+<div *ngFor = "let item of items">
+  <app-item-detail [item] = "item" (itemDeleteEvent) = "deleteItemInList($event)" ></app-item-detail>
+</div>  
+
+
+  

@@ -1,0 +1,26 @@
+
+
+
+<!-- set up a RTC connection
+ -->
+
+ 
+ <!DOCTYPE html>
+
+<html>
+	<body>
+		<h1> set up a RTC connection! </h1>
+		<script type="text/javascript">
+			const alice  = new RTCPeerConnection();
+			const bob = new RTCPeerConnection();
+
+			alice.createOffer()
+			.then(offer => alice.setLocalDescrtion(new RTCSessionDescription(offer)))
+			.then(() => bob.setSetRemoteDescription(alice.localDescription))
+			.then(() => bob.createAnswer())
+			.then(answer => bob.setLocalDescription(new RTCSessionDescription(answer)))
+			.then(() => alice.setSetRemoteDescription(bob.localDescription));
+		</script>
+	</body>
+
+</html>

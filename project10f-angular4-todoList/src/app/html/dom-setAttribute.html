@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+<img id = "img1" src = "img/1.png" height = "300">
+</div>>
+<button onclick = "go()">click me</button>
+
+<script>
+  function go(){
+      var img1 = document.getElementById("img1");
+      var src = "img/" + Math.floor(Math.random() * 4 + 1) + ".png";
+      console.log(src);
+      img1.setAttribute("src", src);
+  }
+</script>
+
+</body>
+</html>

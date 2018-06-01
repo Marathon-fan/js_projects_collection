@@ -1,0 +1,23 @@
+		body {
+			background-color: cyan;
+			color: white;
+			border: 40px;
+			margin-top: 32px;
+			margin-left: 44px;
+			padding: 12px 12px 12px 12px;
+			font-family: sans-serif;
+		}
+		ul {
+			color: red;
+		}
+		h2, h3 {
+			font-size: 40px;
+		}
+		h3 {
+			font-style: italic;
+		}
+		p {
+			background-color: lawngreen;
+		}
+
+		

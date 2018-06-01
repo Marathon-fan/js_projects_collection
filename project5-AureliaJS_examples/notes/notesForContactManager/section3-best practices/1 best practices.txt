@@ -1,0 +1,17 @@
+
+
+content table
+1 starting a new project
+2 folder strcture
+3 web standards
+4 ES6
+
+//-----------------------------
+
+
+
+
+
+
+
+

@@ -1,0 +1,81 @@
+	
+
+	
+		@font-face {
+			font-family: 'awesomefont';
+			src: url('http://www.loonycorn.com/fonts/newfont.woff') format('woff');
+		}
+
+		body {
+			background-color: cyan;
+			color: #0000ff;
+			border: 40px;
+			margin-top: 32px;
+			margin-left: 44px;
+			padding: 12px 12px 12px 12px;
+			font-family: 'awesomefont', sans-serif;
+		}
+		.large-headers {
+			font-size: 180%;
+			color: #00ff00;
+		}
+		.small-headers {
+			font-size: 1.2em;
+			color: de1515;
+		}
+		.highlight {
+			color: #000000;
+		}
+		ul {
+			color: red;
+		}
+		h2, h3 {
+			font-size: 40px;
+		}
+		h3 {
+			font-style: italic;
+		}
+		li {
+			color: #ff0000;
+		}
+		p {
+			margin: 60px;
+
+			border-color: #de1515;
+			border-width: 30px;
+			border-style: solid;
+
+			padding: 100px 12px 50px 80px; /*top, right, bottom, left*/
+			background-color: lawngreen;
+		}
+		h4.green-color {
+			font-size: 22px;
+			color: green;
+		}
+		.solveProblem{
+			background-color: yellow;
+			font-size: 15px;
+		}
+		.sports{
+			background-color: blue;
+			font-size: 25px;
+		}
+		.para{
+			background-color: #ffffff;
+			font-size: 50px;
+		}
+
+		.blue-color {
+			font-size: 30px;
+			color: blue;
+		}
+		.background-yellow {
+			background-color: yellow;
+		}
+		#fav-review-id {
+			font-size: : 32px;
+			color: saddlebrown;
+
+		}
+
+

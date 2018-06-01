@@ -1,0 +1,58 @@
+h1 {
+  text-align: center;
+  padding: 40px 0;
+  border-bottom: 2px solid #eee;
+  background:  #1c1c1c;
+  color: white;
+  text-shadow: 0 0 11px white;
+}
+
+#container {
+  width: 960px;
+  margin: 0 auto;
+}
+
+h3 {
+  padding-top: 24px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #8C8C8C;
+}
+
+.clear:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.movieItem {
+  width: 28%;
+  float: left;
+  margin: 2%;
+  height: 400px;
+  text-align: center;
+  cursor: pointer;
+  background-size: auto 100%!important;
+  position: relative;
+}
+
+.movieName {
+  postion: absolute;
+  color: white;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 76);
+  text-algn: center;
+}
+
+.americanMade {
+  background: url("../../../imgs/americanMade.jpg");
+}
+
+.dunkirk {
+  background: url("../../../imgs/dunkirk.jpg");
+}
+
+.warforplanetofapes {
+  background: url("../../../imgs/warforplanetofapes.jpg");
+}

@@ -1,0 +1,5 @@
+
+in hashing2.js, betterHash() try to evenly hash a string(all the characters in the string are digitals) 
+
+Occasionally, there are some collisions
+

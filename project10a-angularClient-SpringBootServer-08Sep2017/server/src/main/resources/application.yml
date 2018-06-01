@@ -1,0 +1,5 @@
+logging:
+    level:
+        web.spingframework.boot: DEBUG
+        companyName.projectName.fastArtifact: DEBUG
+    file: logs/fastArtifactLog.log

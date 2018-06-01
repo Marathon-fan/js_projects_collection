@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div onmouseover = "mouseover(this)", onmouseout = "mouseout(this)">this is content</div>
+<script>
+  function mouseover(obj){
+      obj.innerHTML = "mouse is on this div";
+    obj.style.color = "red";
+
+  }
+
+  function mouseout(obj){
+    obj.innerHTML = "mouse is out this div";
+    obj.style.color = "blue";
+
+  }
+
+</script>
+</body>
+</html>

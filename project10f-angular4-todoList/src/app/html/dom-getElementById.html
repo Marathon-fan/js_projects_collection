@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id = "p1">this the content before clicking</p>
+<button onclick = "changeContent()">click to change content</button>
+<button onclick = "changeColor()">click to change color</button>
+<script>
+  function changeContent(){
+      document.getElementById("p1").innerHTML = "this is new content!";
+  }
+  function changeColor(){
+      document.getElementById("p1").style.color = "blue";
+  }
+</script>
+
+
+</body>
+</html>

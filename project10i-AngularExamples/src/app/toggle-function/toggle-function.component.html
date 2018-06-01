@@ -1,0 +1,16 @@
+<p>
+  toggle-function works!
+</p>
+<!--<button class = "btn btn-primary"-->
+        <!--(click) = "showSecret = !showSecret"-->
+<!--&gt;display details</button>-->
+<button class = "btn btn-primary"
+        (click) = "onClickToggle()"
+>display details</button>
+<p *ngIf = "showSecret">{{newPara}}</p>
+<div *ngFor = "let logItem of listOfPara"
+     [ngStyle] = "{backgroundColor : logItem >= 5 ? 'blue' : 'transparent'}"
+     [ngClass] = "{'white-text': logItem >= 5}"
+
+>{{ logItem }}</div>
+<p>display content</p>

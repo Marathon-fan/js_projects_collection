@@ -1,0 +1,36 @@
+
+
+list
+1 constructor()
+2 created(owningView, myView)
+3 bind(bindingContext, overrideContext)
+4 attached()
+5 detached()
+6 unbind()
+
+
+
+/////----------------------------
+
+constructor() 
+− Constructor method is used for initializing an object created with a class. This method is called first. If you don't specify this method, the default constructor will be used.
+
+created(owningView, myView) 
+− This is called once the view and view-model are created and connected to the controller. This method takes two arguments. The first one is the view where the component is declared (owningView). The second one is the component view (myView).
+
+bind(bindingContext, overrideContext) 
+− At this point of time, the binding has started. The first argument represents the binding context of the component. The second one is overrideContext. This argument is used for adding additional contextual properties.
+
+attached() 
+− Attached method is invoked once the component is attached to the DOM.
+
+detached() 
+− This method is opposite to attached. It is invoked when the component is removed from the DOM.
+
+unbind() 
+− The last lifecycle method is unbind. It is called when the component is unbound.
+
+
+
+
+

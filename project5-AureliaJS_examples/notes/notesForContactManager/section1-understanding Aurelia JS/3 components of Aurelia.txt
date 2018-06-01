@@ -1,0 +1,9 @@
+
+
+list
+1 components are the main building blocks of Aurelia framework
+2 JS File - model
+3 HTML file - view
+
+/////----------------------------
+

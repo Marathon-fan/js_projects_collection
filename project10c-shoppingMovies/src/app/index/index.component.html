@@ -1,0 +1,21 @@
+
+<h1>Welcome to my shop!</h1>
+
+<div id = "container">
+  <h3>the following movies available:</h3>
+
+  <div id = "myMovieList" class = "clear">
+    <div *ngFor = "let movie of movieList" class = "movieItem {{movie.split(' ').join('')}}" (click)="selectedMovie(movie)">
+        <span class = "movieName">{{movie}}</span>
+    </div>
+
+  </div>
+
+  <div id = "cart">
+  <h3>Cart:</h3>
+  <ul>
+    <li *ngFor = "let item of cart">{{item}}</li>
+  </ul>
+  </div>
+</div>
+s

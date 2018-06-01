@@ -1,0 +1,50 @@
+
+
+Aurelia JS - UI Framework
+
+1 introduction
+1) modern, open source UI framework for web and mobile app development
+2) allows your to write clean, modular javascript
+3) the framework follows simple conventions and is focused on web standards
+
+prequisites
+1) pure JavaScript
+2) HTML
+
+Features
+1) componenets
+2) web standards - ES6(ECMAScript 6 )
+3) extensible
+4) commercial support
+5) license - under MIT license
+
+advantages
+1) Clean
+2) Easily extensible
+3) Easy to work with
+4) Follows web standards
+
+//-----------------------------
+
+Aurelia CLI
+
+JSPM(Javascript Package Manager)
+
+$> sudo npm install -g aurelia-cli
+$> au new
+then input name, and other configures
+
+then enter the project folder, and:
+$> au run
+
+then 
+Application Available At: http://localhost:9000
+BrowserSync Available At: http://localhost:3001
+
+
+
+
+
+
+
+

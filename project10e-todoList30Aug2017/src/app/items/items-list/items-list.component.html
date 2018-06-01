@@ -1,0 +1,4 @@
+
+<div *ngFor = "let item of items">
+  <app-item-detail [item] = "item" (deleteSignal) = "deleteAnItem($event)"></app-item-detail>
+</div>

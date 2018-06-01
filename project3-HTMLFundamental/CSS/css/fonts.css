@@ -1,0 +1,58 @@
+	
+		/*siifds*/
+
+/*		google has a great library of gree web fonts
+		https://www.google.com/fonts/*/
+
+	
+		@font-face {
+			font-family: 'awesomefont';
+			src: url('http://www.loonycorn.com/fonts/newfont.woff') format('woff');
+		}
+
+		body {
+			background-color: cyan;
+			color: white;
+			border: 40px;
+			margin-top: 32px;
+			margin-left: 44px;
+			padding: 12px 12px 12px 12px;
+			font-family: 'awesomefont', sans-serif;
+		}
+		.large-headers {
+			font-size: 180%;
+		}
+		.small-headers {
+			font-size: 1.2em;
+		}
+		ul {
+			color: red;
+		}
+		h2, h3 {
+			font-size: 40px;
+		}
+		h3 {
+			font-style: italic;
+		}
+		p {
+			background-color: lawngreen;
+		}
+		h4.green-color {
+			font-size: 22px;
+			color: green;
+		}
+
+		.blue-color {
+			font-size: 30px;
+			color: blue;
+		}
+		.background-yellow {
+			background-color: yellow;
+		}
+		#fav-review-id {
+			font-size: : 32px;
+			color: saddlebrown;
+
+		}
+
+

@@ -1,0 +1,10 @@
+<h3>New Task Form</h3>
+    <label class = "label">Name:</label>
+    <input placeholder = "Item title" class = "input"
+           [(ngModel)] = "curItem.title"
+           require minlength = "2" maxlength = "23"
+           #title = 'ngModel' autofocus>
+    <button class = is-primary (click) = "onclick()"
+      >Click to add an item
+    </button>
+
