@@ -1,4 +1,12 @@
 
+## install react    
+```
+$> npm i -g create-react-app
+$> create-react-app my-app
+```
+
+react-app-from-scratch(react and react environment in production)  
+https://hackernoon.com/react-app-from-scratch-d694300d1631
 
 
 ## deploy a react app on aws lightsail or ec2    
