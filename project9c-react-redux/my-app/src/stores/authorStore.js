@@ -45,3 +45,4 @@ Dispatcher.register(function(action){
 });
 
 module.exports = AuthorStore;
+

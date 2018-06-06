@@ -1,4 +1,6 @@
 
+
+
 ## install react    
 ```
 $> npm i -g create-react-app
@@ -7,6 +9,19 @@ $> create-react-app my-app
 
 react-app-from-scratch(react and react environment in production)  
 https://hackernoon.com/react-app-from-scratch-d694300d1631
+
+## from parent to child
+
+```
+The props and state of a parent component will become just props to their child component.
+```
+
+
+## Props and state
+
+```
+Props and state are somewhat related in the sense that they both “model” data for React components. Both of them can be passed down from parent to child components. However, the props and state of a parent component will become just props to their child component.
+```
 
 
 ## deploy a react app on aws lightsail or ec2    
