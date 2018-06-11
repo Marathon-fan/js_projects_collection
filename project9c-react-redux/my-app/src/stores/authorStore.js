@@ -3,7 +3,7 @@
 var Dispatcher = require('../dispatcher/appDispatcher');
 var ActionTypes = require('../constants/actionTypes');
 var EventEmitter = require('events').EventEmitter;
-var assign = require('object-assign'); // object-assign: glue two objects together  
+var assign = require('object-assign'); // object-assign: glue two objects together
 var _ = require('lodash');
 var CHANGE_EVENT = 'change'
 
@@ -40,9 +40,8 @@ Dispatcher.register(function(action){
             AuthorStore.emitChange();
             break;
         default:
-            // no op    
+            // no op
     }
 });
 
 module.exports = AuthorStore;
-

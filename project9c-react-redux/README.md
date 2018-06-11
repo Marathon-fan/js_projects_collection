@@ -96,6 +96,27 @@ differs in two ways:
 2 callbacks can wait for other callbacks   
 
 
+## sample code    
+
+```js
+var AuthorPage = React.createClass({
+  getInitialState: function() {
+    ...
+  }
+
+  componentWillMount: function() {
+    AuthorStore.addChangeListener(this._onChange);
+  },
+  componentWillUnmount: function() {
+    AuthorStore.removeChangeListener(this._onChange));
+  },
+  _onChange: function() {
+    this.setState({ authors: AuthorStore.getAllAuthors()});
+  },
+})
+
+```
+
 ## summary   
 Flux is a pattern for unidirectional data flows   
 actions encapsulate events   
