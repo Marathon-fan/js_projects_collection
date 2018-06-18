@@ -96,6 +96,59 @@ differs in two ways:
 2 callbacks can wait for other callbacks   
 
 
+## connect() and Provider   
+
+two pieces of React Redux middleware: connect() and Provider. The two pieces work hand in hand. Provider ensures that our entire React application can potentially access data from the store. Then connect(), allows us to specify which data we are listening to (through mapStateToProps), and which component we are providing the data. 
+
+### Provider   
+Provider ensures that our entire React application can potentially access data from the store.  
+
+We imported Provider from React Redux  
+We used Provider to wrap our React application  
+We passed our store instance into Provider as a prop, making it available to all of our other components.   
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux'; /* code change */
+import shoppingListItemReducer from './reducers/shoppingListItemReducer';
+import App from './App';
+import './index.css';
+
+const store = createStore(
+  shoppingListItemReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App store={store}/>
+  </Provider>, /* code change */
+  document.getElementById('root')
+);
+
+```
+
+We just did a few things here:
+
+We imported Provider from React Redux   
+We used Provider to wrap our React application    
+We passed our store instance into Provider as a prop, making it available to all of our other components.   
+
+
+### connect    
+Then connect(), allows us to specify which data we are listening to (through mapStateToProps), and which component we are providing the data.   
+
+```js
+const mapStateToProps = (state) => { 
+  return { items: state.items };
+};
+
+connect(mapStateToProps)(App);
+
+```
+
 ## sample code    
 
 ```js
