@@ -170,6 +170,10 @@ var AuthorPage = React.createClass({
 
 ```
 
+## redux in pictures
+
+![dispatch-reducer-store-state](./pics/redux1.png)
+
 ## summary   
 Flux is a pattern for unidirectional data flows   
 actions encapsulate events   

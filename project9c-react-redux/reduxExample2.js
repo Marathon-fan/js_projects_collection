@@ -56,4 +56,7 @@ const mapStateToProps = (state, props) => {
   };
 };
 
-export default connect(mapStateToProps)(PreviousEmploymentQuestion);  // every time it renders, the func mapStateToProps will execute automatically
+export default connect(mapStateToProps)(PreviousEmploymentQuestion);  
+// every time it renders, the func mapStateToProps will execute automatically
+// connect always returns a function. So we need to assign the returned function to some variable or const
+

@@ -52,3 +52,19 @@ sudo chown -R bitnami /opt/bitnami
 
 ```
 
+
+## export default     
+
+```js
+
+It's part of the ES6 module system, described here. There is a helpful example in that documentation, also:
+
+If a module defines a default export:
+
+export default function() { console.log("hello!") }
+then you can import that default export by omitting the curly braces:
+
+import foo from "foo";
+foo(); // hello!
+
+```
