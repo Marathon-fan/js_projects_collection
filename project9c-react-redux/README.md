@@ -171,8 +171,38 @@ var AuthorPage = React.createClass({
 ```
 
 ## redux in pictures
+```
+redux state management flow
+1 the only way to modify the store is through reducers
 
+2 the only way to trigger reducers is to dispatch actions 
+to change data, we need to dispatch an action  
+to obtain data we need to get the current state of the store  
+
+```
 ![dispatch-reducer-store-state](./pics/redux1.png)
+
+
+
+
+```
+Provider
+a React component used to "provide" the store to its child components
+```
+![provider](./pics/redux3.png)
+
+
+
+
+```
+Connect
+
+connect() is a function that injects Redux-related props into your component.
+You can inject data and callbacks that change that data by dispatching actions.
+```
+![connect](./pics/redux4.png)
+
+
 
 ## summary   
 Flux is a pattern for unidirectional data flows   
