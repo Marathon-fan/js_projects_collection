@@ -26,11 +26,26 @@ class App extends Component {
 }
 
 class Parent extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      cars: ['s-BMW', 's-MERC', 's-City', 's-Audi']
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState(
+      {cars: this.state.cars.reverse()}
+    );
+  }
+
+
   render() {
     return(
       <div>
-        <h2>Just some info</h2>
-        <Cars msg="cars are cool" model="34765" coolCars={this.props.cars} />
+        <h2 onClick={this.handleClick}>Just some info</h2>
+        <Cars msg="cars are cool" model="34765" coolCars={this.state.cars} />
       </div>
     )
   }
@@ -64,9 +79,9 @@ class Cars extends Component {
         <h2>I am from cars component</h2>
         <p>{this.props.msg}</p>
         <p>{this.props.model}</p>
-        <p>{this.props.coolCars.map((item, i) => {   // i for item 
-          return i + " " + item +  <br />;
-        })}</p>
+        <div>{this.props.coolCars.map((item, i) => {   // i for item 
+          return <p key={i}>{item}</p>;
+        })}</div>
       </div>
     )
   }
