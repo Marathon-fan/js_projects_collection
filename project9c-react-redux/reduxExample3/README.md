@@ -10,5 +10,8 @@
 
 > npm start
 
+> npm install --save prop-types
+
+
 
 ```
