@@ -202,6 +202,10 @@ You can inject data and callbacks that change that data by dispatching actions.
 ```
 ![connect](./pics/redux4.png)
 
+## property   
+
+
+passing from parent to child
 
 
 ## summary   
