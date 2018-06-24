@@ -138,7 +138,30 @@ We passed our store instance into Provider as a prop, making it available to all
 
 
 ### connect    
+
+// connect() is a function that injects Redux-related props into your component.
+
 Then connect(), allows us to specify which data we are listening to (through mapStateToProps), and which component we are providing the data.   
+
+```js
+// The purpose of connect() is that you don't have to think about
+// subscribing to the store or perf optimizations yourself, and
+// instead you can specify how to get props based on Redux store state:
+
+const ConnectedCounter = connect(
+  // Given Redux state, return props
+  state => ({
+    value: state.counter,
+  }),
+  // Given Redux dispatch, return callback props
+  dispatch => ({
+    onIncrement() {
+      dispatch({ type: 'INCREMENT' })
+    }
+  })
+)(Counter)
+
+```
 
 ```js
 const mapStateToProps = (state) => { 
@@ -207,6 +230,23 @@ You can inject data and callbacks that change that data by dispatching actions.
 
 passing from parent to child
 
+## react    
+
+## reducer in react
+
+```
+reducer in react is “just a function.”
+
+it retrieves a state and a function, and then has to return a state
+```
+
+## connect   
+
+```
+connect is a higher order function which returns a function which takes a component as an input 
+
+connect is not really a higher-order component, it's a function that returns a higher-order component   
+```
 
 ## summary   
 Flux is a pattern for unidirectional data flows   
@@ -214,5 +254,7 @@ actions encapsulate events
 dispatcher is a central hub that holds callbacks   
 stores hold app state   
 flux has many implementations   
+
+
 
 
