@@ -18,10 +18,3 @@ With strict mode, you can not, for example, use undeclared variables.
 
 ```
 
-
-
-__proto__ property
-```
-The __proto__ property of Object.prototype is an accessor property (a getter function and a setter function) that exposes the internal [[Prototype]] (either an object or null) of the object through which it is accessed.
-```
-

@@ -59,6 +59,77 @@ Every store has these common traits(aka interface)
 As an application grows, the dispatcher becomes more vital, as it can be used to manage dependencies between the stores by invoking the registered callbacks in a specific order. Stores can declaratively wait for other stores to finished updating, and then update themselves accordingly.
 
 
+## mapDispatchToProps
+you can define a function called mapDispatchToProps() that receives the dispatch() method and returns callback props that you want to inject into the presentational component.
+
+```
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onTodoClick: (id) => {
+      dispatch(toggleTodo(id))
+    }
+  }
+}
+```
+
+```
+const mapDispatchToProps = (dispatch, ownProps) => {
+  const { opportunityId } = ownProps.params;
+  return {
+    setAdditionalIncome: (values, applicantId) => dispatch(setIncome(values, opportunityId, applicantId, true)),
+    updateAdditionalIncome: (values, applicantId) => dispatch(updateIncome(values, applicantId, true)),
+    removeAdditionalIncome: (incomeId, applicantId, sfid) =>
+      dispatch(removeIncome(incomeId, opportunityId, applicantId, sfid, true)),
+  };
+};
+```
+
+## mapStateToProps vs mapDispatchToProps
+```
+mapStateToProps: It connects redux state to props of react component.
+
+mapDispatchToProps: It connects redux actions to react props.
+
+A really light example: ( I hope, you know what I mean)
+
+// state
+const mapStateToProps = state => {
+  return { lists: state.lists };
+};
+
+// props
+const mapDispatchToProps = ({ lists }) => (
+  <ul>
+    { 
+      lists.map(el => (
+        <li key={ el.id }>
+          { el.heading }
+        </li>
+      )
+    }
+  </ul>
+);
+
+// Now, connect state to prop
+const List = connect(mapStateToProps)(mapDispatchToProps);
+
+```
+
+
+## Actions
+
+Actions are payloads of information that send data from your application to your store. They are the only source of information for the store. You send them to the store using store.dispatch().
+
+Here's an example action which represents adding a new todo item:
+```
+const ADD_TODO = 'ADD_TODO'
+{
+  type: ADD_TODO,
+  text: 'Build my first Redux app'
+}
+```
+
+
 ## react view:  
 Controller view:  
 top level components(recommend using single or limited number top level components)  
@@ -246,6 +317,13 @@ it retrieves a state and a function, and then has to return a state
 connect is a higher order function which returns a function which takes a component as an input 
 
 connect is not really a higher-order component, it's a function that returns a higher-order component   
+```
+
+## redux saga
+```
+Redux-saga is a redux middleware library, that is designed to make handling side effects in your redux app nice and simple. It achieves this by leveraging an ES6 feature called Generators, allowing us to write asynchronous code that looks synchronous, and is very easy to test.
+
+
 ```
 
 ## summary   
