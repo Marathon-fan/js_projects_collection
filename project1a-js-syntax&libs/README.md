@@ -111,12 +111,65 @@ console.log(Object.values(object1));
 
 ```
 
+### __proto__    
+
+```
+var alien = {
+  kind: 'alien'
+}
+
+// and a person object
+var person = {
+  kind: 'person'
+}
+
+// and an object called 'zack'
+var zack = {};
+
+// assign alien as the prototype of zack
+zack.__proto__ = alien
+
+// zack is now linked to alien
+// it 'inherits' the properties of alien
+console.log(zack.kind); //=> ‘alien’
+
+// assign person as the prototype of zack
+zack.__proto__ = person
+
+// and now zack is linked to person
+console.log(zack.kind); //=> ‘person’
+```
+
+### yield
+
+The yield keyword is used to pause and resume a generator function (function* or legacy generator function).
+
+```
+function* foo(index) {
+  while (index < 2) {
+    yield index++;
+  }
+}
+
+const iterator = foo(0);
+
+console.log(iterator.next().value);
+// expected output: 0
+
+console.log(iterator.next().value);
+// expected output: 1
+```
+
+
 ## libs   
 
 ### loadsh    
 
 https://lodash.com/docs/
 ```
+$> npm i --save lodash
+
+
 _.isEmpty(value)
 source npm package
 
@@ -125,6 +178,27 @@ Checks if value is an empty object, collection, map, or set.
 Objects are considered empty if they have no own enumerable string keyed properties.
 
 Array-like values such as arguments objects, arrays, buffers, strings, or jQuery-like collections are considered empty if they have a length of 0. Similarly, maps and sets are considered empty if they have a size of 0.
+
+
+_.merge(object, [sources])
+source npm package
+
+This method is like _.assign except that it recursively merges own and inherited enumerable string keyed properties of source objects into the destination object. Source properties that resolve to undefined are skipped if a destination value exists. Array and plain object properties are merged recursively. Other objects and value types are overridden by assignment. Source objects are applied from left to right. Subsequent sources overwrite property assignments of previous sources.
+
+Note: This method mutates object.
+
+var object = {
+  'a': [{ 'b': 2 }, { 'd': 4 }]
+};
+ 
+var other = {
+  'a': [{ 'c': 3 }, { 'e': 5 }]
+};
+ 
+_.merge(object, other);
+// => { 'a': [{ 'b': 2, 'c': 3 }, { 'd': 4, 'e': 5 }] }
+
+
 ```
 
 ### winston    
