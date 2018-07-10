@@ -13,6 +13,12 @@ function regexVar() {
     return re;
 }
 
+
+```
+.* will match 0 or more of any character.
+\1 is a reference to the first capture group (denoted by parentheses). 
+```
+
 //aewxyzae
 
 // var f = regexVar();
