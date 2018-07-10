@@ -350,11 +350,17 @@ Boolean                        true/false
 
 Null                           The value null represents the intentional absence of any object value. It is one of JavaScript's primitive values.
 
-Undefined
-Number
-String
-Symbol
-Object
+Undefined                      The global undefined property represents the primitive value undefined. It is one of JavaScript's primitive types.
+
+Number                         The Number JavaScript object is a wrapper object allowing you to work with numerical values. A Number object is created using the Number() constructor.
+
+String                         The String global object is a constructor for strings or a sequence of characters.
+
+       
+Symbol                         The data type symbol is a primitive data type.
+                               A symbol value may be used as an identifier for object properties; this is the data type's only purpose. 
+
+Object                         The Object constructor creates an object wrapper.
 ```
 
 Boolean
@@ -379,6 +385,90 @@ function getVowels(str) {
 console.log(getVowels('sky'));
 // expected output: 0
 
+
+function getDigits(str) {
+  var m = str.match(/\d+/g);
+  return m;
+}
+
+console.log(getDigits('d94gjkfd320fjds34'));
+console.log(getDigits('59gkfdl49su32opfjd045kmmjfd'));
+
+
+```
+
+undefined   
+undefined is a property of the global object; i.e., it is a variable in global scope. The initial value of undefined is the primitive value undefined.   
+```
+function test(t) {
+  if (t === undefined) {
+     return 'Undefined value!';
+  }
+  return t;
+}
+
+var x;
+
+console.log(test(x));
+// expected output: "Undefined value!"
+```
+
+Number
+```
+var biggestNum = Number.MAX_VALUE;
+var smallestNum = Number.MIN_VALUE;
+var infiniteNum = Number.POSITIVE_INFINITY;
+var negInfiniteNum = Number.NEGATIVE_INFINITY;
+var notANum = Number.NaN;
+
+```
+
+
+String
+```
+let longString = "This is a very long string which needs \
+to wrap across multiple lines because \
+otherwise my code is unreadable.";
+
+```
+
+
+Symbol
+```
+var sym = Symbol('foo');
+typeof sym;     // "symbol" 
+var symObj = Object(sym);
+typeof symObj;  // "object"
+
+var sym1 = Symbol();
+var sym2 = Symbol('foo');
+var sym3 = Symbol('foo');
+The above code creates three new symbols. Note that Symbol("foo") does not coerce the string "foo" into a symbol. It creates a new symbol each time:
+
+Symbol('foo') === Symbol('foo'); // false
+The following syntax with the new operator will throw a TypeError:
+
+var sym = new Symbol(); // TypeError
+
+```
+
+
+
+Object
+```
+var o1 = new Object();
+
+var o2 = new Object(undefined);
+
+var o3 = new Object(null);
+
+// equivalent to o = new Boolean(true);
+var o4 = new Object(true);
+console.log(o4);
+VM234:1 Boolean {true}
+
+// equivalent to o = new Boolean(false);
+var o = new Object(Boolean());
 ```
 
 js
