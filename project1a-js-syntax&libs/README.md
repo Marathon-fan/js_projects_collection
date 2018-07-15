@@ -160,6 +160,36 @@ console.log(iterator.next().value);
 // expected output: 1
 ```
 
+use yield with promise
+```
+Promise.coroutine(function * (){
+  var tweets = yield $.get('tweets.json');
+  var profile = yield $.get('profile.json');
+  var friends = yield $.get('friends.json');
+  console.log(tweets, profile, friends);
+  })();
+
+Promise.coroute(function* () {
+  var data = yield {
+    tweets: $.get('tweets.json'),
+    profile: $.get('profile.json')
+  };
+  console.log(data.tweets, data.profile);
+  })();
+
+Promise.coroute(function* (){
+  var [tweets, profile] = yield [
+    $.get('tweets.json'),
+    $.get('profile.json')
+  ];
+  console.log(tweets, profile);
+  })();
+
+```
+
+
+
+
 ### The reduce() method  
 
 The reduce() method applies a function against an accumulator and each element in the array (from left to right) to reduce it to a single value.
@@ -175,6 +205,17 @@ console.log(array1.reduce(reducer));
 // 5 + 1 + 2 + 3 + 4
 console.log(array1.reduce(reducer, 5));
 // expected output: 15
+
+//
+let arr1 = [1, 2, 3, 4, 5]
+
+let ret1 = arr1.reduce((res, item) => {
+  return res + item
+  }, 0);
+
+console.log(ret1)
+
+
 ```
 
 ### Triple Equals vs Double equals  
@@ -241,12 +282,76 @@ NaN == NaN
 
 ```
 
+js true or false
+```js 
+Yes, it is the expected behavior.
+
+Negation of the following values gives true in javaScript:
+
+false
+undefined
+null
+0 (number zero)
+""(empty string)
+eg: !undefined = true
+
+Note: The following checks return true when you == compare it with false, but their negations will return false.
+
+" "(space only).
+[ ](empty array),
+eg: [ ] == false gives true, but ![ ] gives false
+```
+
+### JSON.stringify and JSON.parse   
+
+JSON.stringify turns a Javascript object into JSON text and stores that JSON text in a string.
+
+JSON.parse turns a string of JSON text into a Javascript object.
+```
+let employee = {name:"Lily", DOB:"1999"};
+console.log('employee:',employee);
+let stringifiedEmployee = JSON.stringify(employee);
+console.log('stringifiedEmployee:',stringifiedEmployee);
+let backFromStringifiedEmployee = JSON.parse(stringifiedEmployee);
+console.log('backFromStringifiedEmployee:',backFromStringifiedEmployee);
+
+//result  
+employee: { name: 'Lily', DOB: '1999' }
+stringifiedEmployee: {"name":"Lily","DOB":"1999"}
+backFromStringifiedEmployee: { name: 'Lily', DOB: '1999' }
+
+```
+
+deep clone an JS object
+```
+let newObj = JSON.parse(JSON.stringify(obj))
+
+```
+
 
 ## libs   
 
 ### loadsh    
 
 https://lodash.com/docs/
+
+```
+
+var _ = require('lodash');
+
+beforeMerge = {};
+afterMerge = _.merge(beforeMerge, {key1:'value1'});
+console.log('afterMerge 1:', afterMerge);
+afterMerge = _.merge(beforeMerge, {key2:'value2'});
+console.log('afterMerge 2:', afterMerge);
+
+///////
+afterMerge 1: { key1: 'value1' }  
+afterMerge 2: { key1: 'value1', key2: 'value2' }  
+
+```
+
+
 ```
 $> npm i --save lodash
 

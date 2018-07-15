@@ -30,3 +30,22 @@ usersExpend.passwd = ['pass1', 'pass2'];
 usersExpend.DOB= ['1999', '1998'];
 
 console.log(usersExpend);
+
+
+////////////////merge example
+var _ = require('lodash');
+
+beforeMerge = {};
+afterMerge = _.merge(beforeMerge, {key1:'value1'});
+console.log('afterMerge 1:', afterMerge);
+afterMerge = _.merge(beforeMerge, {key2:'value2'});
+console.log('afterMerge 2:', afterMerge);
+
+////////////////stringify and parse example
+
+let employee = {name:"Lily", DOB:"1999"};
+console.log('employee:',employee);
+let stringifiedEmployee = JSON.stringify(employee);
+console.log('stringifiedEmployee:',stringifiedEmployee);
+let backFromStringifiedEmployee = JSON.parse(stringifiedEmployee);
+console.log('backFromStringifiedEmployee:',backFromStringifiedEmployee);
