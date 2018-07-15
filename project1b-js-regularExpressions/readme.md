@@ -1,0 +1,137 @@
+# javascript
+
+
+## topics  
+
+
+
+
+### [] vs ()   
+```
+[a-z0-9] will match any lowercase letter or number. (a-z0-9) will match the exact string "a-z0-9" and allows two additional things: You can apply modifiers like * and ? and + to the whole group, and you can reference this match after the match with $1 or \1. 
+```
+
+
+[] denotes a character class. () denotes a capturing group.
+
+[a-z0-9] -- One character that is in the range of a-z OR 0-9
+
+(a-z0-9) -- Explicit capture of a-z0-9. No ranges.
+
+a -- Can be captured by [a-z0-9].
+
+a-z0-9 -- Can be captured by (a-z0-9) and then can be referenced in a replacement and/or later in the expression.
+
+
+```
+?   The question mark indicates zero or one occurrences of the preceding element. 
+    For example, colou?r matches both "color" and "colour".
+*   The asterisk indicates zero or more occurrences of the preceding element. 
+    For example, ab*c matches "ac", "abc", "abbc", "abbbc", and so on.
++   The plus sign indicates one or more occurrences of the preceding element. 
+    For example, ab+c matches "abc", "abbc", "abbbc", and so on, but not "ac".
+```
+
+### 1a
+
+
+
+```js
+(productIds.match(/\((('')?(,?))+\)/g))
+```
+
+```js
+function getVowels(str) {
+  var m = str.match(/[aeiou]/gi);
+  if (m === null) {
+    return 0;
+  }
+  return m.length;
+}
+//This just matches against the regex (g makes it search the whole string, i makes it case-insensitive) and returns the number of matches. We check for null incase there are no matches (ie no vowels), and return 0 in that case.
+```
+
+
+```js
+(productIds.match(/\((('')?(,?))+\)/g))
+```
+
+### 1b
+
+
+// https://www.hackerrank.com/challenges/js10-regexp-1/problem
+
+function regexVar() {
+    /*
+     * Declare a RegExp object variable named 're'
+     * It must match a string that starts and ends with the same vowel (i.e., {a, e, i, o, u})
+     */
+    const re = /^([aeiou]).*\1$/
+    
+    /*
+     * Do not remove the return statement
+     */
+    return re;
+}
+
+
+```
+.* will match 0 or more of any character.
+\1 is a reference to the first capture group (denoted by parentheses). 
+```
+
+
+
+### 2   
+
+
+// https://www.hackerrank.com/challenges/js10-regexp-2/problem
+
+
+function regexVar() {
+    /*
+     * Declare a RegExp object variable named 're'
+     * It must match a string that starts with 'Mr.', 'Mrs.', 'Ms.', 'Dr.', or 'Er.', 
+     * followed by one or more letters.
+     */
+    const re = /^(Mr|Mrs|Ms|Dr|Er)\.[a-z|A-Z]+$/
+    
+    /*
+     * Do not remove the return statement
+     */
+    return re;
+}
+
+const re =regexVar();
+console.log(re.test('Mr.J'));
+
+### 3      
+
+
+// https://www.hackerrank.com/challenges/js10-regexp-3/problem
+
+function regexVar() {
+    /*
+     * Declare a RegExp object variable named 're'
+     * It must match ALL occurrences of numbers in a string.
+     */
+     const re = /\d+/g
+
+     // g stands for group?
+     // why here we don't need ^ and $ anymore
+    
+    
+    /*
+     * Do not remove the return statement
+     */
+    return re;
+}
+
+const tmp = "102, 1948948 and 1.3 and 4.5";
+const re = regexVar();
+console.log(tmp.match(re));
+
+const tmpAgain = "666.888xxx 34.342 234";
+console.log(tmpAgain.match(re));
+
+
