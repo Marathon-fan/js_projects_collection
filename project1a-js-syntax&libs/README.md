@@ -177,7 +177,69 @@ console.log(array1.reduce(reducer, 5));
 // expected output: 15
 ```
 
+### Triple Equals vs Double equals  
+When using double equals in JavaScript we are testing for loose equality. Double equals also performs type coercion.
 
+```
+5 === 5
+// true
+With this in mind, we can look at two more examples that will return true:
+
+'hello world' === 'hello world'
+// true (Both Strings, equal values)
+true === true
+// true (Both Booleans, equal values)
+
+///////////////
+
+77 === '77'
+// false (Number v. String)
+Here are two additional examples:
+
+'cat' === 'dog'
+// false (Both are Strings, but have different values)
+false === 0
+// false (Different type and different value)
+```
+
+
+When using triple equals === in JavaScript, we are testing for strict equality. This means both the type and the value we are comparing have to be the same.
+
+```
+77 === '77'
+// false (Number v. String)
+77 does not strictly equal '77' because they have different types. However, if we were to test these values with loose equality…
+
+77 == '77'
+// true
+
+
+false === 0
+// false (Different type and different value)
+This is obviously false. However, if we run the same equation with loose equality…
+
+false == 0
+// true
+```
+
+
+```
+null == null
+// true
+undefined == undefined
+// true
+null == undefined
+// true
+
+
+NaN == null
+// false
+NaN == undefined
+// false
+NaN == NaN
+// false
+
+```
 
 
 ## libs   
@@ -473,6 +535,77 @@ var o = new Object(Boolean());
 
 js
 
+
+
+
+### Array.concat()
+The concat() method is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array.
+
+
+
+```
+var array1 = ['a', 'b', 'c'];
+var array2 = ['d', 'e', 'f'];
+
+console.log(array1.concat(array2));
+// expected output: Array ["a", "b", "c", "d", "e", "f"]
+```
+
+```js
+
+let arr1 = ['a', 'b', 'c', ['a', 'b']];
+
+arr1[3] = arr1[3].concat(['x', 'y', 'z']);
+
+console.log(arr1)
+// ['a', 'b', 'c', ['a', 'b', 'x', 'y', 'z']]
+
+
+```
+
+### Array.map()
+The map() method creates a new array with the results of calling a provided function on every element in the calling array.
+
+
+```
+var array1 = [1, 4, 9, 16];
+
+// pass a function to map
+const map1 = array1.map(x => x * 2);
+
+console.log(map1);
+// expected output: Array [2, 8, 18, 32]
+```
+
+```
+let arr2 = [2, 3, 4, 6];
+console.log(arr2.map(a => a *2 ));
+// [4, 6, 8, 12]
+```
+
+
+### hashMap vs array
+
+hashMap example
+```js
+let users = {user1:'lily', user2:'Jim'};
+let usersExpend = {users};
+usersExpend.passwd = ['pass1', 'pass2'];
+usersExpend.DOB= ['1999', '1998'];
+
+console.log(usersExpend);
+
+```
+
+array Example
+```
+let arr1 = ['a', 'b', 'c', ['a', 'b']];
+
+arr1[3] = arr1[3].concat(['x', 'y', 'z']);
+
+console.log(arr1)
+// ['a', 'b', 'c', ['a', 'b', 'x', 'y', 'z']]
+```
 
 37 Essential JavaScript Interview Questions *
 1.9K
@@ -840,6 +973,7 @@ Boolean
 Function
 Object
 Undefined
+
 4. What is the use of isNaN function?
 
 isNan function returns true if the argument is not a number otherwise it is false.

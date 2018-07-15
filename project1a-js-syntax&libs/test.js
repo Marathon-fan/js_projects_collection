@@ -23,3 +23,10 @@ var other2 = {
 const res = _.merge(object, other1, other2);
 
 console.log(res);
+
+let users = {user1:'lily', user2:'Jim'};
+let usersExpend = {users};
+usersExpend.passwd = ['pass1', 'pass2'];
+usersExpend.DOB= ['1999', '1998'];
+
+console.log(usersExpend);
