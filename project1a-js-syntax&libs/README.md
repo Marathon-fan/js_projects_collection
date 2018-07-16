@@ -302,6 +302,20 @@ Note: The following checks return true when you == compare it with false, but th
 eg: [ ] == false gives true, but ![ ] gives false
 ```
 
+### JavaScript String replace() Method    
+The replace() method searches a string for a specified value, or a regular expression, and returns a new string where the specified values are replaced.
+
+```
+bankName.replace(/_/g, ' ')
+```
+
+```
+Return a string where "Microsoft" is replaced with "W3Schools":
+
+var str = "Visit Microsoft!";
+var res = str.replace("Microsoft", "W3Schools");
+```
+
 ### JSON.stringify and JSON.parse   
 
 JSON.stringify turns a Javascript object into JSON text and stores that JSON text in a string.

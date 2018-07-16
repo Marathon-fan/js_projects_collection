@@ -134,4 +134,24 @@ console.log(tmp.match(re));
 const tmpAgain = "666.888xxx 34.342 234";
 console.log(tmpAgain.match(re));
 
+### _   
+
+```
+What does the underscore mean in the following regex?
+
+[a-zA-Z0-9_]
+
+It means to match the underscore character in addition to lowercase letters, uppercase letters, and numbers.
+
+```
+
+The underscore means an underscore.
+
+
+
+
+### \$  
+\$ just escapes the $ character so it will match $ literally
+
+
 
