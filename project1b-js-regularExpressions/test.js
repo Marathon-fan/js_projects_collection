@@ -123,6 +123,21 @@ const getUserDOBAsInt = (applicant_dob) => {
     return 1918;
 }
 
+const getUserDOBAsIntV2 = (applicant_dob) => {
+
+    let DEFAULT_DOB_INT = 1918;
+    if (applicant_dob == false || applicant_dob == undefined || applicant_dob.length === 0) {
+        return DEFAULT_DOB_INT;
+    }
+    if (applicant_dob.match(/\d\d\d\d\W\d\d\W\d\d/)) {
+      return parseInt(applicant_dob.substring(0,4));
+    }
+    if (applicant_dob.match(/\d\d\W\d\d\W\d\d\d\d/)) {
+      return parseInt(applicant_dob.substring(applicant_dob.length - 4, applicant_dob.length));
+    }
+    return DEFAULT_DOB_INT;
+}
+
 const dob1 = '1999-12-12';
 const dob2 = '20/08/1991';
 const dob3 = '';
@@ -135,9 +150,16 @@ console.log(getUserDOBAsInt(dob3));
 console.log(getUserDOBAsInt(dob4));
 console.log(getUserDOBAsInt(dob5));
 
+console.log('-----');
 
+console.log(getUserDOBAsIntV2(dob1));
+console.log(getUserDOBAsIntV2(dob2));
+console.log(getUserDOBAsIntV2(dob3));
+console.log(getUserDOBAsIntV2(dob4));
+console.log(getUserDOBAsIntV2(dob5));
 /////////////////////////////////////////////////////test regular expression
-let testStr1 = 'abc';
-let testStr2 = '153';
-console.log('testStr1.match(/\d/g)', testStr1.match(/\d/g));
-console.log('testStr2.match(/\d/g)', testStr2.match(/\d/g));
+
+// let testStr1 = 'abc';
+// let testStr2 = '153';
+// console.log('testStr1.match(/\d/g)', testStr1.match(/\d/g));
+// console.log('testStr2.match(/\d/g)', testStr2.match(/\d/g));

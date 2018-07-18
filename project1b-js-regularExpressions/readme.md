@@ -30,6 +30,18 @@ a-z0-9 -- Can be captured by (a-z0-9) and then can be referenced in a replacemen
     For example, ab*c matches "ac", "abc", "abbc", "abbbc", and so on.
 +   The plus sign indicates one or more occurrences of the preceding element. 
     For example, ab+c matches "abc", "abbc", "abbbc", and so on, but not "ac".
+
+\w  Alphanumeric characters plus "_"    
+\W   
+
+\d   
+\D  
+
+\s    
+\S  
+
+\l  Lowercase letters
+\u  Uppercase letters    
 ```
 
 ### 1a
@@ -165,6 +177,21 @@ const getUserDOBAsInt = (applicant_dob) => {
     return 1918;
 }
 
+const getUserDOBAsIntV2 = (applicant_dob) => { // version 2 is better than version1
+
+
+    let DEFAULT_DOB_INT = 1918;
+    if (applicant_dob == false || applicant_dob == undefined || applicant_dob.length === 0) {
+        return DEFAULT_DOB_INT;
+    }
+    if (applicant_dob.match(/\d\d\d\d\W\d\d\W\d\d/)) {
+        return parseInt(applicant_dob.substring(0,4));
+    }
+    if (applicant_dob.match(/\d\d\W\d\d\W\d\d\d\d/)) {
+        return parseInt(applicant_dob.substring(applicant_dob.length - 4, applicant_dob.length));
+    }
+    return DEFAULT_DOB_INT;
+}
 ```
 
 
