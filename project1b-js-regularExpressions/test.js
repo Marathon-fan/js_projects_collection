@@ -129,10 +129,10 @@ const getUserDOBAsIntV2 = (applicant_dob) => {
     if (applicant_dob == false || applicant_dob == undefined || applicant_dob.length === 0) {
         return DEFAULT_DOB_INT;
     }
-    if (applicant_dob.match(/\d\d\d\d\W\d\d\W\d\d/)) {
+    if (applicant_dob.match(/\d\d\d\d\D\d\d\D\d\d/)) {
       return parseInt(applicant_dob.substring(0,4));
     }
-    if (applicant_dob.match(/\d\d\W\d\d\W\d\d\d\d/)) {
+    if (applicant_dob.match(/\d\d\D\d\d\D\d\d\d\d/)) {
       return parseInt(applicant_dob.substring(applicant_dob.length - 4, applicant_dob.length));
     }
     return DEFAULT_DOB_INT;

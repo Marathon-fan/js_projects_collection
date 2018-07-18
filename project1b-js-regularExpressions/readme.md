@@ -31,14 +31,14 @@ a-z0-9 -- Can be captured by (a-z0-9) and then can be referenced in a replacemen
 +   The plus sign indicates one or more occurrences of the preceding element. 
     For example, ab+c matches "abc", "abbc", "abbbc", and so on, but not "ac".
 
-\w  Alphanumeric characters plus "_"    
-\W   
+\w  Word character(Alphanumeric characters plus "_")    
+\W  Non-word characters 
 
-\d   
-\D  
+\d  Digits
+\D  Non-digits
 
-\s    
-\S  
+\s   Whitespace character([ \t\r\n\v\f])   
+\S  Non-whitespace characters([^ \t\r\n\v\f])
 
 \l  Lowercase letters
 \u  Uppercase letters    
@@ -184,11 +184,11 @@ const getUserDOBAsIntV2 = (applicant_dob) => { // version 2 is better than versi
     if (applicant_dob == false || applicant_dob == undefined || applicant_dob.length === 0) {
         return DEFAULT_DOB_INT;
     }
-    if (applicant_dob.match(/\d\d\d\d\W\d\d\W\d\d/)) {
-        return parseInt(applicant_dob.substring(0,4));
+    if (applicant_dob.match(/\d\d\d\d\D\d\d\D\d\d/)) {
+      return parseInt(applicant_dob.substring(0,4));
     }
-    if (applicant_dob.match(/\d\d\W\d\d\W\d\d\d\d/)) {
-        return parseInt(applicant_dob.substring(applicant_dob.length - 4, applicant_dob.length));
+    if (applicant_dob.match(/\d\d\D\d\d\D\d\d\d\d/)) {
+      return parseInt(applicant_dob.substring(applicant_dob.length - 4, applicant_dob.length));
     }
     return DEFAULT_DOB_INT;
 }
