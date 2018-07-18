@@ -137,25 +137,34 @@ console.log(tmpAgain.match(re));
 ### parse user dob to int
 
 ```
-in the db, applicant_dob could be the following forms:
-1 1999-12-12
-2 20/08/1991
-3 NULL
-
-then use the following func to parse user dob to int
+// suppose the main dob has the following three formats(the first two are valid, the third is invalid).
+// also,  dob can also has other invalid characters since users may mistakenly input their dobs
+//1 1999-12-12
+//2 20/08/1991
+//3 NULL
+// then use the following func to parse user dob to int
 
 const getUserDOBAsInt = (applicant_dob) => {
-    if (applicant_dob == false || applicant_dob.length === 0) {
+    if (applicant_dob != null && applicant_dob != false && applicant_dob != undefined) {
+      console.log(applicant_dob);
+      console.log('applicant_dob.substring(0,4).match(/\d/g)', applicant_dob.substring(0,4).match(/\d/g));
+      console.log('applicant_dob.substring(0,4).match(/\d+/g)', applicant_dob.substring(0,4).match(/\d+/g));
+      console.log('applicant_dob.substring(applicant_dob.length - 4, applicant_dob.length).match(/\d/g)', applicant_dob.substring(applicant_dob.length - 4, applicant_dob.length).match(/\d/g));
+    }
+    if (applicant_dob == false || applicant_dob == undefined || applicant_dob.length === 0) {
         return 1918;
     }
-    if (applicant_dob.substring(0,4).match(/\d/g).length === 4) {
+    let str1 = applicant_dob.substring(0,4).match(/\d/g);
+    if (str1 != null && str1.length === 4) {
         return parseInt(applicant_dob.substring(0,4));
     }
-    if (applicant_dob.substring(applicant_dob.length - 4, applicant_dob.length).match(/\d/g).length === 4) {
+    let str2 = applicant_dob.substring(applicant_dob.length - 4, applicant_dob.length).match(/\d/g);
+    if (str2 != null && str2.length === 4) {
         return parseInt(applicant_dob.substring(applicant_dob.length - 4, applicant_dob.length));
     }
     return 1918;
 }
+
 ```
 
 
