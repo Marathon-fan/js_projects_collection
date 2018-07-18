@@ -188,4 +188,58 @@ The underscore means an underscore.
 \$ just escapes the $ character so it will match $ literally
 
 
+### start and end    
+
+
+```
+
+https://www.hackerrank.com/challenges/matching-anything-but-new-line/problem
+
+
+var Regex_Pattern = /^...\....\....\....$/; 
+
+or
+
+var Regex_Pattern = /^...\....\....\....$/g; 
+
+```
+
+### Matching Digits & Non-Digit Characters   
+
+```
+https://www.hackerrank.com/challenges/matching-digits-non-digit-character/problem
+
+var Regex_Pattern = /\d\d\D\d\d\D\d\d\d\d/;      // "06-11-2015" 
+
+```
+
+### Matching Whitespace & Non-Whitespace Character   
+
+
+```
+
+https://www.hackerrank.com/challenges/matching-whitespace-non-whitespace-character/problem
+
+var Regex_Pattern = /\S\S\s\S\S\s\S\S/;          //   "12 11 15"
+
+```
+
+### Matching Word & Non-Word Character      
+
+ 
+```
+https://www.hackerrank.com/challenges/matching-word-non-word/problem
+
+var Regex_Pattern = /\w\w\w\W\w\w\w\w\w\w\w\w\w\w\W\w\w\w/;    // "www.hackerrank.com"
+
+```
+
+
+### Matching Start & End          
+
+```
+https://www.hackerrank.com/challenges/matching-start-end/problem
+
+var Regex_Pattern = /^\d\w\w\w\w\.$/;        //"0qwer."
+```
 
