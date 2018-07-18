@@ -42,6 +42,8 @@ a-z0-9 -- Can be captured by (a-z0-9) and then can be referenced in a replacemen
 
 \l  Lowercase letters
 \u  Uppercase letters    
+
+\b assert position at a word boundary  
 ```
 
 ### 1a
@@ -269,4 +271,126 @@ https://www.hackerrank.com/challenges/matching-start-end/problem
 
 var Regex_Pattern = /^\d\w\w\w\w\.$/;        //"0qwer."
 ```
+
+
+### Matching Specific Characters   
+          
+
+```
+https://www.hackerrank.com/challenges/matching-specific-characters/problem
+
+var Regex_Pattern = /[1-3][012][xs0][03aA][xsu][\.,]/;  // 1203x.
+
+ 
+```
+
+
+
+### Matching {x, y} Repetitions
+          
+
+```
+https://www.hackerrank.com/challenges/matching-x-y-repetitions/problem
+
+var Regex_Pattern = /^\d{1,2}[a-zA-Z]{3,}\.{0-3}$/; //3threeormorealphabets.
+
+```
+
+
+
+### Matching Word Boundaries            
+
+```
+https://www.hackerrank.com/challenges/matching-word-boundaries/problem
+
+var Regex_Pattern = /\b[aeiouAEIOU][a-zA-Z]*\b/; // see example Matching Word Boundaries
+
+```
+
+### xxx          
+
+```
+https://www.hackerrank.com/challenges/matching-start-end/problem
+
+var Regex_Pattern = /^\d\w\w\w\w\.$/;        //"0qwer."
+```
+
+
+
+### xxx          
+
+```
+https://www.hackerrank.com/challenges/matching-start-end/problem
+
+var Regex_Pattern = /^\d\w\w\w\w\.$/;        //"0qwer."
+```
+
+
+
+### xxx          
+
+```
+https://www.hackerrank.com/challenges/matching-start-end/problem
+
+var Regex_Pattern = /^\d\w\w\w\w\.$/;        //"0qwer."
+```
+
+///////////////////////////////////////////////////////
+
+### xxx          
+
+```
+https://www.hackerrank.com/challenges/matching-start-end/problem
+
+var Regex_Pattern = /^\d\w\w\w\w\.$/;        //"0qwer."
+```
+
+
+
+///////////////////////////////////////////////////////
+
+### xxx          
+
+```
+https://www.hackerrank.com/challenges/matching-start-end/problem
+
+var Regex_Pattern = /^\d\w\w\w\w\.$/;        //"0qwer."
+```
+
+
+
+///////////////////////////////////////////////////////
+
+### xxx          
+
+```
+https://www.hackerrank.com/challenges/matching-start-end/problem
+
+var Regex_Pattern = /^\d\w\w\w\w\.$/;        //"0qwer."
+```
+
+
+
+///////////////////////////////////////////////////////
+
+### xxx          
+
+```
+https://www.hackerrank.com/challenges/matching-start-end/problem
+
+var Regex_Pattern = /^\d\w\w\w\w\.$/;        //"0qwer."
+```
+
+
+
+///////////////////////////////////////////////////////
+
+### xxx          
+
+```
+https://www.hackerrank.com/challenges/matching-start-end/problem
+
+var Regex_Pattern = /^\d\w\w\w\w\.$/;        //"0qwer."
+```
+
 
