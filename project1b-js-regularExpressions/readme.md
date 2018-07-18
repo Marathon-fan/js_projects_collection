@@ -134,6 +134,31 @@ console.log(tmp.match(re));
 const tmpAgain = "666.888xxx 34.342 234";
 console.log(tmpAgain.match(re));
 
+### parse user dob to int
+
+```
+in the db, applicant_dob could be the following forms:
+1 1999-12-12
+2 20/08/1991
+3 NULL
+
+then use the following func to parse user dob to int
+
+const getUserDOBAsInt = (applicant_dob) => {
+    if (applicant_dob == false || applicant_dob.length === 0) {
+        return 1918;
+    }
+    if (applicant_dob.substring(0,4).match(/\d/g).length === 4) {
+        return parseInt(applicant_dob.substring(0,4));
+    }
+    if (applicant_dob.substring(applicant_dob.length - 4, applicant_dob.length).match(/\d/g).length === 4) {
+        return parseInt(applicant_dob.substring(applicant_dob.length - 4, applicant_dob.length));
+    }
+    return 1918;
+}
+```
+
+
 ### _   
 
 ```
