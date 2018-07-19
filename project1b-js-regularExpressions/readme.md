@@ -307,7 +307,44 @@ var Regex_Pattern = /\b[aeiouAEIOU][a-zA-Z]*\b/; // see example Matching Word Bo
 
 ```
 
-### xxx          
+### Excluding Specific Characters   
+          
+```
+https://www.hackerrank.com/challenges/excluding-specific-characters/problem
+
+var Regex_Pattern = /^[^\d][^aeiou][^bcDF][^\s][^AEIOU][^.,]$/; // think?
+
+
+
+
+### Matching Character Ranges        
+
+```
+https://www.hackerrank.com/challenges/matching-range-of-characters/problem
+
+var Regex_Pattern = /^[a-z][1-9][^z-z][^A-Z][A-Z]/; //h4CkR
+
+```
+
+
+
+
+
+### Capturing & Non-Capturing Groups   
+          
+
+```
+https://www.hackerrank.com/challenges/capturing-non-capturing-groups/problem
+
+var Regex_Pattern = /((ok){3,})/; //  okokok! cya
+
+
+///////////////////////////////////////////////////////
+
+
+
+### Matching Same Text Again & Again  
+          
 
 ```
 https://www.hackerrank.com/challenges/matching-start-end/problem
@@ -317,23 +354,39 @@ var Regex_Pattern = /^\d\w\w\w\w\.$/;        //"0qwer."
 
 
 
-### xxx          
+///////////////////////////////////////////////////////
+
+### Matching Same Text Again & Again             
 
 ```
-https://www.hackerrank.com/challenges/matching-start-end/problem
+https://www.hackerrank.com/challenges/matching-same-text-again-again/problem
 
-var Regex_Pattern = /^\d\w\w\w\w\.$/;        //"0qwer."
+// both answers are OK   
+
+var Regex_Pattern = /^(([a-z])(\w)(\s)(\W)(\d)(\D)([A-Z])([a-zA-Z])([aeiouAEIOU])(\S))\1$/; 
+
+var Regex_Pattern = /^([a-z])(\w)(\s)(\W)(\d)(\D)([A-Z])([a-zA-Z])([aeiouAEIOU])(\S)\1\2\3\4\5\6\7\8\9\10$/; 
+
+// ab #1?AZa$ab #1?AZa$
 ```
 
 
 
-### xxx          
+///////////////////////////////////////////////////////
+
+### Positive Lookahead
+        
 
 ```
-https://www.hackerrank.com/challenges/matching-start-end/problem
+https://www.hackerrank.com/challenges/positive-lookahead/problem
 
-var Regex_Pattern = /^\d\w\w\w\w\.$/;        //"0qwer."
+var Regex_Pattern = /o(?=oo)/g; //Do not delete `/` and `/g`.
+
+// gooooo!
+
 ```
+
+
 
 ///////////////////////////////////////////////////////
 
@@ -357,7 +410,45 @@ https://www.hackerrank.com/challenges/matching-start-end/problem
 var Regex_Pattern = /^\d\w\w\w\w\.$/;        //"0qwer."
 ```
 
+///////////////////////////////////////////////////////
 
+### xxx          
+
+```
+https://www.hackerrank.com/challenges/matching-start-end/problem
+
+var Regex_Pattern = /^\d\w\w\w\w\.$/;        //"0qwer."
+```
+
+///////////////////////////////////////////////////////
+
+### xxx          
+
+```
+https://www.hackerrank.com/challenges/matching-start-end/problem
+
+var Regex_Pattern = /^\d\w\w\w\w\.$/;        //"0qwer."
+```
+
+///////////////////////////////////////////////////////
+
+### xxx          
+
+```
+https://www.hackerrank.com/challenges/matching-start-end/problem
+
+var Regex_Pattern = /^\d\w\w\w\w\.$/;        //"0qwer."
+```
+
+///////////////////////////////////////////////////////
+
+### xxx          
+
+```
+https://www.hackerrank.com/challenges/matching-start-end/problem
+
+var Regex_Pattern = /^\d\w\w\w\w\.$/;        //"0qwer."
+```
 
 ///////////////////////////////////////////////////////
 
@@ -370,27 +461,96 @@ var Regex_Pattern = /^\d\w\w\w\w\.$/;        //"0qwer."
 ```
 
 
-
 ///////////////////////////////////////////////////////
 
-### xxx          
-
-```
-https://www.hackerrank.com/challenges/matching-start-end/problem
-
-var Regex_Pattern = /^\d\w\w\w\w\.$/;        //"0qwer."
-```
 
 
+Detect HTML links
+MediumMax Score: 10Success Rate: 65.77%
+Use Regular Expressions to detect links in a given HTML fragment.
 
-///////////////////////////////////////////////////////
 
-### xxx          
+Detect HTML Tags
+EasyMax Score: 10Success Rate: 91.31%
 
-```
-https://www.hackerrank.com/challenges/matching-start-end/problem
 
-var Regex_Pattern = /^\d\w\w\w\w\.$/;        //"0qwer."
-```
+Find A Sub-Word
+EasyMax Score: 10Success Rate: 88.46%
+
+
+Alien Username
+EasyMax Score: 10Success Rate: 92.58%
+
+
+IP Address Validation
+EasyMax Score: 10Success Rate: 91.22%
+
+
+Find a Word
+MediumMax Score: 15Success Rate: 81.94%
+
+
+Detect the Email Addresses
+MediumMax Score: 15Success Rate: 84.28%
+
+
+Detect the Domain Name
+MediumMax Score: 15Success Rate: 83.54%
+
+
+Building a Smart IDE: Identifying comments
+MediumMax Score: 20Success Rate: 82.06%
+
+
+Detecting Valid Latitude and Longitude Pairs
+EasyMax Score: 20Success Rate: 95.48%
+
+
+HackerRank Tweets
+EasyMax Score: 15Success Rate: 96.03%
+
+
+Build a Stack Exchange Scraper
+EasyMax Score: 15Success Rate: 92.71%
+
+
+Utopian Identification Number
+EasyMax Score: 15Success Rate: 95.18%
+
+
+Valid PAN format
+EasyMax Score: 15Success Rate: 96.97%
+
+
+Find HackerRank
+EasyMax Score: 15Success Rate: 97.09%
+
+
+Saying Hi
+EasyMax Score: 15Success Rate: 94.81%
+
+
+HackerRank Language
+EasyMax Score: 15Success Rate: 91.47%
+
+Building a Smart IDE: Programming Language Detection
+MediumMax Score: 30Success Rate: 71.53%
+
+
+Split the Phone Numbers
+EasyMax Score: 15Success Rate: 97.40%
+
+
+Detect HTML Attributes
+EasyMax Score: 20Success Rate: 92.00%
+
+
+The British and American Style of Spelling
+EasyMax Score: 15Success Rate: 92.47%
+
+
+UK and US: Part 2
+EasyMax Score: 10Success Rate: 87.47%
+
 
 
