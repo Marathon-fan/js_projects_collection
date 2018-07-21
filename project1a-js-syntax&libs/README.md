@@ -309,12 +309,32 @@ The replace() method searches a string for a specified value, or a regular expre
 bankName.replace(/_/g, ' ')
 ```
 
+```js
+//Using a function to return the replacement text:
+
+var str = "Mr Blue has a blue house and a blue car";
+var res = str.replace(/blue|house|car/gi, function (x) {
+    return x.toUpperCase();
+});
+```
+
 ```
 Return a string where "Microsoft" is replaced with "W3Schools":
 
 var str = "Visit Microsoft!";
 var res = str.replace("Microsoft", "W3Schools");
 ```
+
+
+### String trim() Method   
+
+Remove whitespace from both sides of a string:
+Note: The trim() method does not change the original string.
+```
+var str = "       Hello World!        ";
+alert(str.trim());
+```
+
 
 ### JSON.stringify and JSON.parse   
 
@@ -341,6 +361,26 @@ deep clone an JS object
 let newObj = JSON.parse(JSON.stringify(obj))
 
 ```
+
+### Array.prototype.slice()   
+    
+The slice() method returns a shallow copy of a portion of an array into a new array object selected from begin to end (end not included). The original array will not be modified.
+
+
+```
+var animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+
+console.log(animals.slice(2));
+// expected output: Array ["camel", "duck", "elephant"]
+
+console.log(animals.slice(2, 4));
+// expected output: Array ["camel", "duck"]
+
+console.log(animals.slice(1, 5));
+// expected output: Array ["bison", "camel", "duck", "elephant"]
+
+```
+
 
 
 ## libs   
