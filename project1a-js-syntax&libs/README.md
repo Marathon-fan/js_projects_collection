@@ -264,7 +264,7 @@ false == 0
 ```
 
 
-```
+```js
 null == null
 // true
 undefined == undefined
@@ -280,7 +280,32 @@ NaN == undefined
 NaN == NaN
 // false
 
+isNaN(NaN) // true
+
 ```
+
+### NaN
+
+NaN is spec'd to never be equal to anything.   
+
+```js
+console.log(NaN === NaN);
+
+
+console.log(!NaN) ; // This is because casting NaN into a boolean will make it false
+                    // NaN is spec'd to never be equal to anything.   
+```
+
+
+
+The isNaN() function determines whether a value is NaN or not. Note: coercion inside the isNaN function has interesting rules; you may alternatively want to use Number.isNaN(), as defined in ECMAScript 2015.
+
+```
+isNaN(NaN) // true
+
+```
+
+
 
 js true or false
 ```js 
@@ -440,6 +465,16 @@ _.merge(object, other);
 
 
 ```
+
+find  
+```js
+_.find(collection, [predicate=_.identity], [fromIndex=0])
+source npm package
+
+Iterates over elements of collection, returning the first element predicate returns truthy for. The predicate is invoked with three arguments: (value, index|key, collection).
+
+```
+
 
 ### winston    
 
