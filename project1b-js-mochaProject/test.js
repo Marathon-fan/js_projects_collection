@@ -2,9 +2,10 @@
 require('babel-register')({
     presets: [ 'env' ]
 })
+const { getUserDOBAsInt, getMaxUserAgeAtEndOfLoanTerm } = require('./utils');
 
-const getUserDOBAsInt = require('./utils/getUserDOBAsInt');
-const getMaxUserAgeAtEndOfLoanTerm = require('./utils/getMaxUserAgeAtEndOfLoanTerm');
+// const getUserDOBAsInt = require('./utils/getUserDOBAsInt');
+// const getMaxUserAgeAtEndOfLoanTerm = require('./utils/getMaxUserAgeAtEndOfLoanTerm');
 
 //import { getUserDOBAsInt, getMaxUserAgeAtEndOfLoanTerm } from './utils';
 
