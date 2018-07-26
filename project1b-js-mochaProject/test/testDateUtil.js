@@ -1,9 +1,7 @@
 
-require('babel-register')({
-    presets: [ 'env' ]
-})
 
-const { getUserDOBAsInt, getMaxUserAgeAtEndOfLoanTerm } = require('./utils');
+import { getUserDOBAsInt, getMaxUserAgeAtEndOfLoanTerm }  from './../src/utils/DateUtils';
+//const { getUserDOBAsInt, getMaxUserAgeAtEndOfLoanTerm } = require('./utils');
 
 var assert = require('assert');
 
