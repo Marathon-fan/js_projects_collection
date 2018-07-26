@@ -61,3 +61,5 @@ const getMaxUserAgeAtEndOfLoanTerm = (users, loanData) => {
 }
 
 export { getUserDOBAsInt, getMaxUserAgeAtEndOfLoanTerm }; 
+
+

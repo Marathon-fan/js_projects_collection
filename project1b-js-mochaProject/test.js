@@ -2,21 +2,23 @@
 require('babel-register')({
     presets: [ 'env' ]
 })
+
 const { getUserDOBAsInt, getMaxUserAgeAtEndOfLoanTerm } = require('./utils');
-
-// const getUserDOBAsInt = require('./utils/getUserDOBAsInt');
-// const getMaxUserAgeAtEndOfLoanTerm = require('./utils/getMaxUserAgeAtEndOfLoanTerm');
-
-//import { getUserDOBAsInt, getMaxUserAgeAtEndOfLoanTerm } from './utils';
 
 var assert = require('assert');
 
-describe('Array', function() {
-  describe('#indexOf()', function() {
-    it('should return -1 when the value is not present', function() {
-      assert.equal(getUserDOBAsInt('1999-12-12'), 1999);
-    });
-  });
+const dateArr = ['1999-12-12', '1999-12-2', '1999-1-12', '1999/2/2',  '12-12-1999', '12-2-1999', '1-12-1999', '1-1-1999', '12-12-199', 'xy-cd-aabb'];
+const yearArr = [1999, 1999, 1999, 1999, 1999, 1999, 1999, 1999, -1, -1];
+
+describe('date1', function() {
+	dateArr.forEach((date, index) => {
+		describe('date test case ' + index , function() {
+		  it('should equal to ' +  yearArr[index] +  ' with input ' + date, function() {
+		    assert.equal(getUserDOBAsInt(date), yearArr[index]);
+		  });
+		});
+	}); 
 });
+
 
 
