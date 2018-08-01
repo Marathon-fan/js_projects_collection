@@ -572,13 +572,48 @@ Simple, fast generation of RFC4122 UUIDS.
 
 
 
-### co   
+### Throng      
+
+Dead-simple one-liner for clustered Node.js apps.   
+Runs X workers and respawns them if they go down. Correctly handles signals from the OS.
+
+```
+const throng = require('throng');
+
+throng({
+  workers: 4,
+  master: startMaster,
+  start: startWorker
+});
+
+// This will only be called once
+function startMaster() {
+  console.log('Started master');
+}
+
+// This will be called four times
+function startWorker(id) {
+  console.log(`Started worker ${ id }`);
+
+  process.on('SIGTERM', () => {
+    console.log(`Worker ${ id } exiting...`);
+    console.log('(cleanup would happen here)');
+    process.exit();
+  });
+}
+```
 
 
+### NewRelic(instrumentation tools)-needs registartion          
 
-### co   
+When working with node at scale it is imperative to have insight into your node processes: how much memory and CPU are in use, what your average throughput is, how long response times are, etc. Without this information you are completely in the dark when diagnosing problems in production. NewRelic gives you real time insight into how your application is behaving wherever you deployed it!
 
 
+```
+Make sure you have a New Relic account before starting. To see all the features, such as slow transaction traces, you will need a New Relic Pro subscription (or equivalent).
+
+
+```
 
 ### co   
 
