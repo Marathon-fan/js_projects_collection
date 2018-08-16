@@ -2,7 +2,7 @@
 
 var fs = require('fs');
 
-var txtFile = "data.txt";
+var txtFile = "data1.txt";
 
 let str = fs.readFileSync(txtFile,'utf8');
 

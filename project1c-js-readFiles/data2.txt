@@ -1,0 +1,112 @@
+            for(let k = 0; k < LOOPCOUNT; k++) {
+                if (k != 0 ) {  // initialize serviceCalculators
+                    products.forEach( (product, i) => {       
+                            if (!SPLIT_LOAN) {
+                                product.loanAmount = isNaN(serviceCalculators[i].maximum_borrowing) ? loanAmount : serviceCalculators[i].maximum_borrowing ;
+                            }                    
+                        }
+                    );
+                }
+                serviceCalculators = (SPLIT_LOAN) ? generateBasicServicingCalculator(userGroup, [products[0]], loanAmount) : generateBasicServicingCalculator(userGroup, products, loanAmount);
+            if(transformation === 'product_search') {
+                serviceCalculators = applyMonthlyRepaymentToProductList(serviceCalculators, loanData.loan_amount, loanData.tenure);
+                let ret = transformReturn(serviceCalculators, transformation, input, undefined, filterData);
+                return res.json(success(ret));
+            }
+            let detail = constructCollection(userGroup.income_and_expense_types);
+            let productIds = constructCollection(getProductSFIDs(products));
+            let lenderIds = [];
+            let wholesaleFunderIds = [];
+             /*****
+             * find bank details
+             */
+            let bankDetails = yield Salesforce.findBanks();
+            if(!bankDetails) return res.boom.badImplementation('', 'No Bank Details Found In Database.');
+            let bankDetailMap = bankDetails.reduce((map, bank) => {
+                let key = bank.bank_sf_id;
+                map.set(key, bank);
+                return map;
+            }, new Map());
+
+            // expand the products data
+            for(let p of products) {
+              if(transformation !== 'aggregation') {
+                let product = yield Salesforce.findProductWithID({id: p.product_sf_id});
+                if(product) {
+                  wholesaleFunderIds.push(product.wholesale_funder);
+                  if(lenderIds.indexOf(product.bank_sf_id) === -1) lenderIds.push(product.bank_sf_id);
+                  p.bank_sf_id = product.bank_sf_id;
+                  p.wholesale_funder = product.wholesale_funder;
+                  p.rate_buffer = product.rate_buffer;
+                  //return error msg when Servicing_Calculator_Accuracy__c is 0%
+                  if(bankDetailMap.get(product.wholesale_funder || product.bank_sf_id).servicing_calculator_accuracy==='0%'){return res.boom.badImplementation('', 'Lender not added on the Servicing Calculator. Please use manual Calculator.');}
+                  //return error msg when product assessment rate is missing
+                  if(!_.isNumber(product.assessment_rate)){return res.boom.badImplementation('', 'Static data missing. Please raise an help desk ticket');}
+                }
+              } else {
+                if(wholesaleFunderIds.indexOf(p.wholesale_funder) === -1) {
+                    wholesaleFunderIds.push(p.wholesale_funder)
+                };
+                if(lenderIds.indexOf(p.bank_sf_id) === -1) {
+                    lenderIds.push(p.bank_sf_id);
+                }
+              }
+            }
+
+            let lenderCollection = wholesaleFunderIds.length > 0 ? constructCollection(wholesaleFunderIds) : constructCollection(lenderIds);
+            let incomeExpenseTypeResults = (productIds.match(/\((('')?(,?))+\)/g)) ? yield Salesforce.findIncomeExpenseTypeWithOutProduct({detail}) : yield Salesforce.findIncomeExpenseType({ detail, productIds, lenderCollection});
+
+                //get rental income recognition map by postcode and bank
+            let rentalIncomePostcodeMap = new Map();
+                if(!_.isEmpty(propertyPostcodeSet)) {
+                    let bankIds = constructCollection(wholesaleFunderIds.concat(lenderIds));
+                    let propertyPostcodes = constructCollection(propertyPostcodeSet);
+                    let rentalIncomeRecognitions = yield Salesforce.findRentalIncomeRecongsByPostcode({bankIds:bankIds, postcodes:propertyPostcodes});
+                    rentalIncomePostcodeMap = rentalIncomeRecognitions.reduce((map, rir) => {
+                        let key = rir.bank_sf_id + rir.postcode;
+                        map.set(key, rir);
+                        return map;
+                    }, new Map());
+                }
+
+            //tax call
+            let taxRuleRecords = yield Salesforce.findTaxRules();
+            let recIncomes = getRecongnisedIncomes(serviceCalculators);  // a set of income
+
+            let maxIncome = 0; let minIncome = 9999999999999;
+            for(let i of recIncomes) {
+                if(i <= minIncome) minIncome = i;
+                if(i >= maxIncome) maxIncome = i;
+            }
+            // TODO: need split tax calculation from following.
+            let ownerships = _.isEmpty(userGroup.ownershipAssetIds) ? [] : yield Salesforce.findOwnershipUUIDsWithAssetUUID(userGroup.ownershipAssetIds);
+
+            serviceCalculators = applyIncomeExpenseTypeToServiceCalculator(serviceCalculators, incomeExpenseTypeResults, taxRuleRecords, bankDetailMap, ownerships, splitProducts, rentalIncomePostcodeMap);
+            //
+
+            //incomeSelectionCondition += ' (net_income_from <= ' + i + ' AND net_income_to >= ' + i + ') OR';
+            let incomeSelectionCondition = ' (net_income_from <= ' + (maxIncome*2 || '9999999999999') + ' AND net_income_to >= ' + (minIncome || '0') + ') ';
+
+            let postcodeSelectionCondition = '(';
+            for(let p of postcodeSet) postcodeSelectionCondition += '(location_guide_postcode_from <= ' + p + ' AND location_guide_postcode_to >= ' + p + ') OR';
+            postcodeSelectionCondition = postcodeSelectionCondition.substring(0, postcodeSelectionCondition.length - 3) + ')';
+
+            let livingExpenseResults = (!lenderCollection || lenderCollection.match(/\((('')?(,?))+\)/g))
+                ? yield Salesforce.findLivingExpenseWithoutLender({ incomeSelectionCondition, dependants, postcodeSelectionCondition, stateShortName })
+                : yield Salesforce.findLivingExpense({ incomeSelectionCondition, dependants, postcodeSelectionCondition, stateShortName, lenderCollection});
+
+            if(!livingExpenseResults || livingExpenseResults.length === 0) return res.boom.badImplementation('', 'No Bank Specified Living Expense Found.');
+            serviceCalculators = applyLivingExpenseToServiceCalculator(serviceCalculators, livingExpenseResults, bankDetailMap);
+
+            if(transformation !== 'aggregation' && !_.isEmpty(serviceCalculators[0].error_message)) {
+                return res.boom.badImplementation('', serviceCalculators[0].error_message.toString());
+            }
+            serviceCalculators = applyServiceabilityToServiceCalculator(serviceCalculators, loanData.loan_amount, loanData.tenure, SPLIT_LOAN ? products : undefined, bankDetailMap);
+
+            serviceCalculators.forEach(
+                sc => {
+                    //console.log('loop k ', k, '  sc.maximum_borrowing:', sc.maximum_borrowing, 'sc.product  ' , sc.product,  '  sc.product.bank_full_name  ', sc.product.bank_full_name );
+                    console.log('loop k ', k, '  sc.maximum_borrowing:', sc.maximum_borrowing, 'sc.product.product_sf_id  ' , sc.product.product_sf_id,  '  sc.product.bank_full_name  ', sc.product.bank_full_name );
+                }
+            );
+        }
