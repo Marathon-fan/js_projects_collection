@@ -1,0 +1,13 @@
+Adelaide Bank	a226F000006TndOQAS
+Adelaide Bank (Commercial)	a226F000006TnddQAC
+Advantedge	a226F00000CcIYwQAN
+AMP Bank	a226F000003xNbNQAU
+ANZ	a2290000001lBh1AAE
+Australian First Mortgage	a226F000006TndeQAC
+Auswide Bank	a2290000001lBh2AAE
+Bank Australia	a226F000007ESf9QAG
+Thinktank	a226F00000CcIZVQA3
+Victoria Teachers Mutual Bank	a2290000001lBiKAAU
+Virgin Money	a226F0000078qLTQAY
+Westpac	a2290000001lBXFAA2
+Westpac (Commercial)	a226F000006TndzQAC

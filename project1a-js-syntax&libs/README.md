@@ -54,10 +54,10 @@ The function* declaration (function keyword followed by an asterisk) defines a g
 
 Generators are functions which can be exited and later re-entered. Their context (variable bindings) will be saved across re-entrances.
 
-Generators in JavaScript -- especially when combined with Promises -- are a very powerful tool for asynchronous programming as they mitigate -- if not entirely eliminate -- the problems with callbacks, such as Callback Hell and Inversion of Control. 
+Generators in JavaScript -- especially when combined with Promises -- are a very powerful tool for asynchronous programming as they mitigate -- if not entirely eliminate -- the problems with callbacks, such as Callback Hell and Inversion of Control.
 This pattern is what async functions are built on top of.
 
-Calling a generator function does not execute its body immediately; an iterator object for the function is returned instead. When the iterator's next() method is called, the generator function's body is executed until the first yield expression, which specifies the value to be returned from the iterator or, with yield*, delegates to another generator function. The next() method returns an object with a value property containing the yielded value and a done property which indicates whether the generator has yielded its last value as a boolean. Calling the next() method with an argument will resume the generator function execution, replacing the yield expression where execution was paused with the argument from next(). 
+Calling a generator function does not execute its body immediately; an iterator object for the function is returned instead. When the iterator's next() method is called, the generator function's body is executed until the first yield expression, which specifies the value to be returned from the iterator or, with yield*, delegates to another generator function. The next() method returns an object with a value property containing the yielded value and a done property which indicates whether the generator has yielded its last value as a boolean. Calling the next() method with an argument will resume the generator function execution, replacing the yield expression where execution was paused with the argument from next().
 
 ```
 function* generator(i) {
@@ -322,7 +322,7 @@ isNaN(NaN) // true
 
 
 js true or false
-```js 
+```js
 Yes, it is the expected behavior.
 
 Negation of the following values gives true in javaScript:
@@ -402,7 +402,7 @@ let newObj = JSON.parse(JSON.stringify(obj))
 ```
 
 ### Array.prototype.slice()   
-    
+
 The slice() method returns a shallow copy of a portion of an array into a new array object selected from begin to end (end not included). The original array will not be modified.
 
 
@@ -469,11 +469,11 @@ Note: This method mutates object.
 var object = {
   'a': [{ 'b': 2 }, { 'd': 4 }]
 };
- 
+
 var other = {
   'a': [{ 'c': 3 }, { 'e': 5 }]
 };
- 
+
 _.merge(object, other);
 // => { 'a': [{ 'b': 2, 'c': 3 }, { 'd': 4, 'e': 5 }] }
 
@@ -488,6 +488,23 @@ source npm package
 Iterates over elements of collection, returning the first element predicate returns truthy for. The predicate is invoked with three arguments: (value, index|key, collection).
 
 ```
+
+pick
+```js
+_.pick(object, [paths])
+source npm package
+
+Creates an object composed of the picked object properties.
+
+
+example
+var object = { 'a': 1, 'b': '2', 'c': 3 };
+
+_.pick(object, ['a', 'c']);
+// => { 'a': 1, 'c': 3 }
+
+```
+
 
 
 ### winston    
@@ -661,9 +678,9 @@ Number                         The Number JavaScript object is a wrapper object 
 
 String                         The String global object is a constructor for strings or a sequence of characters.
 
-       
+
 Symbol                         The data type symbol is a primitive data type.
-                               A symbol value may be used as an identifier for object properties; this is the data type's only purpose. 
+                               A symbol value may be used as an identifier for object properties; this is the data type's only purpose.
 
 Object                         The Object constructor creates an object wrapper.
 ```
@@ -741,7 +758,7 @@ otherwise my code is unreadable.";
 Symbol
 ```
 var sym = Symbol('foo');
-typeof sym;     // "symbol" 
+typeof sym;     // "symbol"
 var symObj = Object(sym);
 typeof symObj;  // "object"
 
@@ -937,9 +954,9 @@ question badge
 In what order will the numbers 1-4 be logged to the console when the code below is executed? Why?
 
 (function() {
-    console.log(1); 
-    setTimeout(function(){console.log(2)}, 1000); 
-    setTimeout(function(){console.log(3)}, 0); 
+    console.log(1);
+    setTimeout(function(){console.log(2)}, 1000);
+    setTimeout(function(){console.log(3)}, 0);
     console.log(4);
 })();
 View the answer →
@@ -1195,9 +1212,9 @@ outer();
 
 
 
-Top 85 JavaScript Interview Questions & Answers 
+Top 85 JavaScript Interview Questions & Answers
 
- 
+
 1. What is JavaScript?
 
 JavaScript is a client-side as well as server side scripting language that can be inserted into HTML pages and is understood by web browsers. JavaScript is also an Object based Programming language
@@ -1245,7 +1262,7 @@ document.write("This is \a program");
 And if you change to a new line when not within a string statement, then javaScript ignores break in line.
 
 
- 
+
 Example:
 
 
@@ -1258,9 +1275,9 @@ x+y;
 4
 5
 var x=1, y=2,
- 
+
 z=
- 
+
 x+y;
 The above code is perfectly fine, though not advisable as it hampers debugging.
 
@@ -1277,14 +1294,14 @@ Undefined variables are those that are declared in the program but have not been
 10. Write the code for adding new elements dynamically?
 
 
-<html> 
-<head> <title>t1</title> 
-<script type="text/javascript"> 
-function addNode() { var newP = document.createElement("p"); 
-var textNode = document.createTextNode(" This is a new text node"); 
-newP.appendChild(textNode); document.getElementById("firstP").appendChild(newP); } 
-</script> </head> 
-<body> <p id="firstP">firstP<p> </body> 
+<html>
+<head> <title>t1</title>
+<script type="text/javascript">
+function addNode() { var newP = document.createElement("p");
+var textNode = document.createTextNode(" This is a new text node");
+newP.appendChild(textNode); document.getElementById("firstP").appendChild(newP); }
+</script> </head>
+<body> <p id="firstP">firstP<p> </body>
 </html>
 1
 2
@@ -1295,14 +1312,14 @@ newP.appendChild(textNode); document.getElementById("firstP").appendChild(newP);
 7
 8
 9
-<html> 
-<head> <title>t1</title> 
-<script type="text/javascript"> 
-function addNode() { var newP = document.createElement("p"); 
-var textNode = document.createTextNode(" This is a new text node"); 
-newP.appendChild(textNode); document.getElementById("firstP").appendChild(newP); } 
-</script> </head> 
-<body> <p id="firstP">firstP<p> </body> 
+<html>
+<head> <title>t1</title>
+<script type="text/javascript">
+function addNode() { var newP = document.createElement("p");
+var textNode = document.createTextNode(" This is a new text node");
+newP.appendChild(textNode); document.getElementById("firstP").appendChild(newP); }
+</script> </head>
+<body> <p id="firstP">firstP<p> </body>
 </html>
 11. What are global variables? How are these variable declared and what are the problems associated with using them?
 
@@ -1402,7 +1419,7 @@ i = "string";
 2
 3
 i = 10;
- 
+
 i = "string";
 This is called variable typing.
 
@@ -1470,7 +1487,7 @@ The following code has to be inserted to achieve the desired effect:
 2
 3
 <script language="JavaScript" type="text/javascript" >
- 
+
 <!-- location.href="http://newhost/newpath/newfile.html"; //--></script>
 34. What is the data type of variables of in JavaScript?
 
@@ -1495,7 +1512,7 @@ document.write "I m a \"good\" boy"
 2
 3
 document.write "I m a "good" boy"
- 
+
 document.write "I m a \"good\" boy"
 37. What are JavaScript Cookies?
 
@@ -1580,21 +1597,21 @@ Code runs either it finishes successfully or after catch
 16
 17
 Try{
- 
+
 Code
- 
+
 }
- 
+
 Catch(exp){
- 
+
 Code to throw an exception
- 
+
 }
- 
+
 Finally{
- 
+
 Code runs either it finishes successfully or after catch
- 
+
 }
 46. Which keyword is used to print the text in the screen?
 
@@ -1615,7 +1632,7 @@ i=”john”;
 2
 3
 i= 8;
- 
+
 i=”john”;
 49. How to find operating system in the client machine using JavaScript?
 
@@ -1640,7 +1657,7 @@ Unshift method is like push method which works at the beginning of the array.  T
 
 Both are almost similar. JavaScript is developed by Netscape and Jscript was developed by Microsoft .
 
- 
+
 
 54. How are object properties assigned?
 
@@ -1678,13 +1695,13 @@ var v = “This is a strict mode function";
 8
 9
 function myfunction()
- 
+
 {
- 
+
 “use strict";
- 
+
 var v = “This is a strict mode function";
- 
+
 }
 56. What is the way to get the status of a CheckBox?
 
@@ -1705,7 +1722,7 @@ The onload function is not run until all the information on the page is loaded. 
 onDocumentReady loads the code just after the DOM is loaded. This allows early manipulation of the code.
 
 
- 
+
 59. How will you explain closures in JavaScript? When are they used?
 
 Closure is a locally declared variable related to a function which stays in memory when the function has returned.
@@ -1776,45 +1793,45 @@ JamesGreeter();
 40
 41
 function greet(message) {
- 
+
 console.log(message);
- 
+
 }
- 
+
 function greeter(name, age) {
- 
+
 return name + " says howdy!! He is " + age + " years old";
- 
+
 }
- 
+
 // Generate the message
- 
+
 var message = greeter("James", 23);
- 
+
 // Pass it explicitly to greet
- 
+
 greet(message);
- 
+
 This function can be better represented by using closures
- 
+
 function greeter(name, age) {
- 
+
 var message = name + " says howdy!! He is " + age + " years old";
- 
+
 return function greet() {
- 
+
 console.log(message);
- 
+
 };
- 
+
 }
- 
+
 // Generate the closure
- 
+
 var JamesGreeter = greeter("James", 23);
- 
+
 // Use the closure
- 
+
 JamesGreeter();
 60. How can a value be appended to an array?
 
@@ -1838,9 +1855,9 @@ statement or block to execute
 4
 5
 for (variable name in object){
- 
+
 statement or block to execute
- 
+
 }
 In each repetition, one property from the object is associated to the variable name, and the loop is continued till all the properties of the object are depleted.
 
@@ -1863,11 +1880,11 @@ anon();
 6
 7
 var anon = function() {
- 
+
 alert('I am anonymous');
- 
+
 };
- 
+
 anon();
 63. What is the difference between .call() and .apply()?
 
@@ -1912,27 +1929,27 @@ someObject.myMethod.apply(someOtherObject, ['<', '>']); // alerts '<Bar>'
 22
 23
 var someObject = {
- 
+
 myProperty : 'Foo',
- 
+
 myMethod : function(prefix, postfix) {
- 
+
 alert(prefix + this.myProperty + postfix);
- 
+
 }
- 
+
 };
- 
+
 someObject.myMethod('<', '>'); // alerts '<Foo>'
- 
+
 var someOtherObject  = {
- 
+
 myProperty : 'Bar'
- 
+
 };
- 
+
 someObject.myMethod.call(someOtherObject, '<', '>'); // alerts '<Bar>'
- 
+
 someObject.myMethod.apply(someOtherObject, ['<', '>']); // alerts '<Bar>'
 64. Define event bubbling?
 
@@ -2029,11 +2046,11 @@ console.log(name);
 6
 7
 var name = [ "john" ];
- 
+
 name.unshift( "charlie" );
- 
+
 name.unshift( "joseph", "Jane" );
- 
+
 console.log(name);
 The output is shown below:
 
@@ -2057,9 +2074,9 @@ document.write(escape(“Hello? How are you!”));
 4
 5
 <script>
- 
+
 document.write(escape(“Hello? How are you!”));
- 
+
 </script>
 Output: Hello%3F%20How%20are%20you%21
 
@@ -2077,9 +2094,9 @@ document.write(unescape(“Hello%3F%20How%20are%20you%21”));
 4
 5
 <script>
- 
+
 document.write(unescape(“Hello%3F%20How%20are%20you%21”));
- 
+
 </script>
 Output: Hello? How are you!
 
@@ -2103,13 +2120,13 @@ document.write(decodeURI(uri));
 8
 9
 <script>
- 
+
 var uri="my test.asp?name=ståle&car=saab";
- 
+
 document.write(encodeURI(uri)+ "<br>");
- 
+
 document.write(decodeURI(uri));
- 
+
 </script>
 Output –
 
@@ -2146,4 +2163,3 @@ Add “<!–” without the quotes in the code just after the <script> tag.
 Add “//–>” without the quotes in the code just before the <script> tag.
 
 Old browsers will now treat this JavaScript code as a long HTML comment. While, a browser that supports JavaScript, will take the “<!–” and “//–>” as one-line comments.
-
