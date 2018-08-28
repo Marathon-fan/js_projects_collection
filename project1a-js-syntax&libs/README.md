@@ -506,6 +506,32 @@ _.pick(object, ['a', 'c']);
 ```
 
 
+_.isNumber(value)
+Checks if value is classified as a Number primitive or object.
+Note: To exclude Infinity, -Infinity, and NaN, which are classified as numbers, use the _.isFinite method.
+Since
+0.1.0
+```
+Arguments
+value (*): The value to check.
+Returns
+(boolean): Returns true if value is a number, else false.
+```
+Example
+```javascript
+_.isNumber(3);
+// => true
+ 
+_.isNumber(Number.MIN_VALUE);
+// => true
+ 
+_.isNumber(Infinity);
+// => true
+ 
+_.isNumber('3');
+// => false
+```
+
 
 ### winston    
 
