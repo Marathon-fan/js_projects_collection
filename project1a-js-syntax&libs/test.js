@@ -49,3 +49,13 @@ let stringifiedEmployee = JSON.stringify(employee);
 console.log('stringifiedEmployee:',stringifiedEmployee);
 let backFromStringifiedEmployee = JSON.parse(stringifiedEmployee);
 console.log('backFromStringifiedEmployee:',backFromStringifiedEmployee);
+////////////////-------------------------------------------
+console.log('----');
+let original = [{'a':9}];
+console.log('original', original);
+let deepCopy1 = _.merge({}, original);
+let deepCopy2 = JSON.parse(JSON.stringify(original))
+console.log('deepCopy1', deepCopy1);
+console.log('deepCopy2', deepCopy2);
+console.log('original[0].a', original[0].a);
+
