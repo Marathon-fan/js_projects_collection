@@ -1,18 +1,32 @@
 
-var fs = require('fs');
+var fs = require('graceful-fs')
 
-var txtFile = "students.json";
+var txtFile = "restaurants.json";  // or students
 
 let str = fs.readFileSync(txtFile,'utf8');
 
 let arr = str.split('\n');
 
-console.log('[');
+let content = '[' + '\n';
+fs.appendFile('out.json', content, function (err) {
+  if (err) throw err;
+  console.log('Saved! + content');
+});
+
+
 arr.forEach( line => {
 	const newLine  = line.toString();
-	let res = newLine + ',' ;
-	console.log(res);
+	content = newLine + ',' + '\n';
+	fs.appendFile('out.json', content, function (err) {
+	  if (err) throw err;
+	  console.log('Saved! + content');
+	});
 });
-console.log(']');
 
+
+content = ']'  + '\n';
+fs.appendFile('out.json', content, function (err) {
+  if (err) throw err;
+  console.log('Saved! + content');
+});
 
